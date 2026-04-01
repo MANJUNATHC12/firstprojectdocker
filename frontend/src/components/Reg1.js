@@ -11,7 +11,7 @@ function Reg1(){
 
 
      const loadUsers = async() => {
-        const res = await axios.get("http://backend:8081/Register");
+        const res = await axios.get("/Register");
         setuser(res.data);
     }
 
@@ -59,11 +59,11 @@ function Reg1(){
 
             try{
                 if(editid){
-            await axios.put(`http://backend:8081/Register/${editid}`, form);
+            await axios.put(`/Register/${editid}`, form);
             seteditid(null);
         }
         else{
-            await axios.post("http://backend:8081/Register", form);
+            await axios.post("/Register", form);
         }
      }
      catch (error){
@@ -81,7 +81,7 @@ function Reg1(){
 
 
       const deleteuser = async(id) => {
-        await axios.delete(`http://backend:8081/Register/${id}`);
+        await axios.delete(`/Register/${id}`);
         loadUsers();    
     }
    
